@@ -1,7 +1,7 @@
 #!/bin/sh
 # shellcheck disable=SC2317
 cat >/dev/null <<'#https://hakadoriya.github.io/log.sh/'
-<style>body{font-size:0;margin:0}code,pre{font-size:1rem;font-family:'Ricty Diminished',Osaka-Mono,Menlo,Monaco,Consolas,'Courier New','Andale Mono','Ubuntu Mono',monospace}</style><pre><code>
+<style>body{font-size:0;margin:0}code,pre{font-size:1rem;font-family:'JetBrains Mono','Ricty Diminished',Osaka-Mono,Menlo,Monaco,Consolas,'Courier New','Andale Mono','Ubuntu Mono',monospace}</style><pre><code>
 #https://hakadoriya.github.io/log.sh/
 
 # LICENSE: https://github.com/hakadoriya/log.sh/blob/HEAD/LICENSE
