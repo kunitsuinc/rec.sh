@@ -1,10 +1,10 @@
 #!/bin/sh
 # shellcheck disable=SC2317
-cat >/dev/null <<'#https://kunitsucom.github.io/log.sh/'
+cat >/dev/null <<'#https://hakadoriya.github.io/log.sh/'
 <style>body{font-size:0;margin:0}code,pre{font-size:1rem;font-family:'Ricty Diminished',Osaka-Mono,Menlo,Monaco,Consolas,'Courier New','Andale Mono','Ubuntu Mono',monospace}</style><pre><code>
-#https://kunitsucom.github.io/log.sh/
+#https://hakadoriya.github.io/log.sh/
 
-# LISENCE: https://github.com/kunitsucom/log.sh/blob/HEAD/LICENSE
+# LICENSE: https://github.com/hakadoriya/log.sh/blob/HEAD/LICENSE
 # Common
 if [ "${LOGSH_COLOR:-}" ] || [ -t 2 ] ; then LOGSH_COLOR=true; else LOGSH_COLOR=''; fi
 _logshRFC3339() { date "+%Y-%m-%dT%H:%M:%S%z" | sed "s/\(..\)$/:\1/"; }
@@ -26,7 +26,7 @@ LogshRun() { _dlm="####R#E#C#D#E#L#I#M#I#T#E#R####" && _all=$({ _out=$("$@") && 
 # shellcheck disable=SC3045
 echo "${SHELL-}" | grep -q "/?bash" && export -f _logshRFC3339 _logshCmd LogshDefault LogshDebug LogshInfo LogshWarning LogshError LogshCritical LogshAlert LogshEmergency LogshExec LogshRun || true
 
-# LISENCE: https://github.com/kunitsucom/log.sh/blob/HEAD/LICENSE
+# LICENSE: https://github.com/hakadoriya/log.sh/blob/HEAD/LICENSE
 # Common
 _logshRFC3339() { date "+%Y-%m-%dT%H:%M:%S%z" | sed "s/\(..\)$/:\1/"; }
 _logshCmd() { for a in "$@"; do if echo "${a:-}" | grep -Eq "[[:blank:]]"; then printf "'%s' " "${a:-}"; else printf "%s " "${a:-}"; fi; done | sed "s/ $//"; }
@@ -50,4 +50,4 @@ LogshRunJSON() { _dlm='####R#E#C#D#E#L#I#M#I#T#E#R####' && _all=$({ _out=$("$@")
 # shellcheck disable=SC3045
 echo "${SHELL-}" | grep -q "/?bash" && export -f _logshRFC3339 _logshCmd _logshEscape _logshJSON LogshDefaultJSON LogshDebugJSON LogshInfoJSON LogshNoticeJSON LogshWarningJSON LogshErrorJSON LogshCriticalJSON LogshAlertJSON LogshEmergencyJSON LogshExecJSON LogshRunJSON || true
 
-# (C) 2022 kunitsucom </code></pre>
+# (C) 2022 hakadoriya </code></pre>

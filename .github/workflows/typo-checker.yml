@@ -1,16 +1,14 @@
-name: sh-test
-#     ^^^^^^^
-# https://github.com/organization/repository/workflows/sh-test/badge.svg
-#                                                      ^^^^^^^
+name: typo-checker
+#     ^^^^^^^^^^^^
+# https://github.com/organization/repository/workflows/typo-checker/badge.svg
+#                                                      ^^^^^^^^^^^^
 
 on:
-  push:
-    # NO paths-ignore
   pull_request:
-    # NO paths-ignore
   workflow_dispatch:
+    inputs: {}
 
-# NOTE: Cancel the previous run of the same workflow if it's still running
+# NOTE: If commit & push continuously, cancel the workflow other than the latest commit.
 concurrency:
   group: ${{ github.workflow }}-${{ github.base_ref }}-${{ github.head_ref }}-${{ github.ref }}
   cancel-in-progress: true
@@ -27,11 +25,12 @@ defaults:
     shell: bash
 
 jobs:
-  sh-test: # NOTE: for Branch protection rule `Status checks that are required.`
+  typo-checker: # NOTE: for Branch protection rule `Status checks that are required.`
     runs-on: ubuntu-latest # ref. https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
     steps:
       - uses: actions/checkout@v4
       - name: DEBUG
+        shell: bash
         run: |
           cat <<'DEBUG_DOC'
           == DEBUG =======================================================
@@ -43,8 +42,5 @@ jobs:
           ${{ toJSON(github) }}
           ================================================================
           DEBUG_DOC
-        shell: bash
-      - name: Run test.sh
-        working-directory: ${{ env.WORKDIR }}
-        run: |
-          ${{ env.WORKDIR }}/bin/test.sh
+      - name: Check spelling
+        uses: crate-ci/typos@master
